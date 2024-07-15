@@ -213,7 +213,7 @@ export default function RowAndColumnSpacing() {
                 fontSize: { xs: "14px", sm: "16px", md: "18px" },
                 lineHeight: { xs: "18px", sm: "20px", md: "21.78px" },
                 marginLeft: "8%",
-                marginTop: "3%",
+                marginTop: "12%",
               }}
             >
               We understand that in today's fast-paced world, staying ahead means embracing innovation. That's why we leverage the most advanced technological tools and strategies to tailor financial solutions that meet the unique needs of each client. Whether you're a startup looking to secure funding or an established business seeking to optimize cash flow, our expertise and commitment to excellence ensure that you receive the best-in-class service and support.

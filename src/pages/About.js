@@ -5,7 +5,7 @@ import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRig
 
 const About = () => {
     return (
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
+        <Grid container rowSpacing={1} mt={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
             <Grid item xs={12} md={6} >
                 <Typography
                     sx={{
@@ -42,12 +42,12 @@ const About = () => {
                     fontSize: "40px",
                     lineHeight: "48.41px",
                     marginLeft: "8%",
-                    marginTop: "5%",
+                    marginTop: "11%",
                 }}>Empowering
                     Business Through
                     Financial Innovation</Typography>
             </Grid>
-            <Grid item xs={12} md={6} sx={{ position: 'relative' }}>
+            <Grid item xs={12} md={6} sx={{ position: 'relative',marginTop: "9%", }}>
 
                 <Typography sx={{
                     font: "inter",
@@ -55,7 +55,7 @@ const About = () => {
                     fontSize: "18px",
                     lineHeight: "21.78px",
                     marginLeft: "8%",
-                    marginTop: "10%",
+                  
                 }}> We understand that in today's fast-paced world, staying ahead means embracing innovation. That's why we leverage the most advanced technological tools and strategies to tailor financial solutions that meet the unique needs of each client.
 
                 </Typography>
