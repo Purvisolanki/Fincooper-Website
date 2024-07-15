@@ -8,6 +8,9 @@ import About from './pages/About';
 // import RequiresAuth from './pages/Auth';
 import Connect from './pages/Connect'
 import Navbar from './components/Navbar'
+import Solution from './pages/Solution'
+import Career from './pages/Career'
+
 function App() {
   return (
     <>
@@ -18,6 +21,8 @@ function App() {
       <Route path="/" element={<Dashboard />} />
         <Route path="/home" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
+        <Route path="/solution" element={<Solution />} />
+        <Route path="/career" element={<Career />} />
         <Route path="/connect" element={<Connect />} />
         {/* <Route path="/profile" element={<RequiresAuth><ProfilePage /></RequiresAuth>} /> */}
       </Routes>
