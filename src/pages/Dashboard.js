@@ -2,7 +2,6 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Navbar from '../components/Navbar';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
@@ -82,7 +81,6 @@ const StyledImage = styled('img')(({ theme }) => ({
 export default function RowAndColumnSpacing() {
   return (
     <>
-      <Navbar />
       <HomeContainer>
         <Grid container spacing={3} >
           <Grid item xs={12} md={6} >

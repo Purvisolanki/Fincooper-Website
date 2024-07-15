@@ -7,14 +7,13 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Solution', 'Career', 'Connect'];
 
-function Navbar() {
+function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -33,7 +32,7 @@ function Navbar() {
     <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src='assets/finlogo.png' alt='logo' style={{ width: "150px", marginLeft: "2%" }} />
+          <img src='assets/finlogo.png' alt='logo' style={{ width: "150px" }} />
 
           <Box sx={{ flexGrow: 1 }} />
 
@@ -47,10 +46,8 @@ function Navbar() {
                   color: 'black',
                   display: 'block',
                   mx: 2,
-                  fontWeight: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/') ? 'bold' : 'normal',
-                  textDecoration: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/') ? 'underline' : 'none',
+                  textDecoration: window.location.pathname === `/${page.toLowerCase()}` ? 'underline' : 'none',
                   textUnderlineOffset: '4px',
-                  marginBottom: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/') ? '4px' : '0px',
                 }}
               >
                 {page}
@@ -58,7 +55,7 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end', }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -75,7 +72,7 @@ function Navbar() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'r;ight',
               }}
               keepMounted
               transformOrigin={{
@@ -87,10 +84,6 @@ function Navbar() {
               sx={{
                 marginTop: '40px',
                 display: { xs: 'block', md: 'none' },
-                '& .MuiPaper-root': {
-                  display: 'flex',
-                  justifyContent: 'center',
-                },
               }}
             >
               {pages.map((page) => (
@@ -103,11 +96,8 @@ function Navbar() {
                     display: 'block',
                     width: '100%',
                     justifyContent: 'center',
-                    fontWeight: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/') ? 'bold' : 'normal',
-                    textDecoration: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/') ? 'underline' : 'none',
+                    textDecoration: window.location.pathname === `/${page.toLowerCase()}` ? 'underline' : 'none',
                     textUnderlineOffset: '4px',
-                    marginBottom: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/') ? '4px' : '0px',
-                    textAlign: 'center',
                   }}
                 >
                   {page}
@@ -121,4 +111,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default ResponsiveAppBar;
