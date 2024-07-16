@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import About from './About';
 import Typewriter from '../components/Typewriter';
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 const HomeContainer = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -55,7 +55,7 @@ const StyledTypography2 = styled(Typography)(({ theme }) => ({
   fontSize: "18px",
   lineHeight: "21.78px",
   marginLeft: "8%",
-  marginTop: "3%",
+  // marginTop: "3%",
   color: "#fff",
   
   [theme.breakpoints.down('md')]: {
@@ -113,7 +113,7 @@ export default function RowAndColumnSpacing() {
                 fontWeight: 400,
                 lineHeight: '20px',
                 marginLeft: "8%",
-                marginTop: "5%",
+                marginTop: "8%",
                 padding: {
                   xs: '12px 24px',
                   sm: '12px 32px',
@@ -157,20 +157,17 @@ export default function RowAndColumnSpacing() {
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={6} sx={{ marginTop: "5%", height: "auto" }}>
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 2 }}
-          >
+          
             <img
               src="assets/photo.png"
               alt="Your png"
               style={{
                 marginLeft: "10%",
-                width: '80%',
+                width: '65%',
                 height: 'auto',
               }}
             />
-          </motion.div>
+    
         </Grid>
         <Grid item xs={12} md={6} sx={{ position: 'relative', height: "auto" }}>
           <img
@@ -215,7 +212,7 @@ export default function RowAndColumnSpacing() {
                 },
               }}
             >
-              Our Mission
+              Our <Typewriter text="Mission" delay={100} infinite />
             </Typography>
             <Typography
               sx={{

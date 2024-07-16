@@ -2,6 +2,7 @@ import { Grid, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
+import Typewriter from '../components/Typewriter';
 
 const About = () => {
     return (
@@ -34,7 +35,7 @@ const About = () => {
                         },
                     }}
                 >
-                    About Us
+                    Abo<Typewriter text="ut Us.." delay={100} infinite />
                 </Typography>
                 <Typography sx={{
                     font: "inter",

@@ -11,9 +11,10 @@ import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Solution', 'Career', 'Connect'];
 
-function ResponsiveAppBar() {
+function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const navigate = useNavigate();
+  const currentPath = window.location.pathname;
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,30 +33,37 @@ function ResponsiveAppBar() {
     <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src='assets/finlogo.png' alt='logo' style={{ width: "150px" }} />
+          <img src='assets/finlogo.png' alt='logo' style={{ width: "150px", marginLeft: "5%" }} />
 
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', flexGrow: 1 }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => handleNavigate(`/${page.toLowerCase()}`)}
-                sx={{
-                  my: 2,
-                  color: 'black',
-                  display: 'block',
-                  mx: 2,
-                  textDecoration: window.location.pathname === `/${page.toLowerCase()}` ? 'underline' : 'none',
-                  textUnderlineOffset: '4px',
-                }}
-              >
-                {page}
-              </Button>
-            ))}
+            {pages.map((page) => {
+              const path = `/${page.toLowerCase()}`;
+              const isActive = currentPath === path;
+
+              return (
+                <Button
+                  key={page}
+                  onClick={() => handleNavigate(path)}
+                  sx={{
+                    my: 2,
+                    color: isActive ? 'primary.main' : 'black',
+                    display: 'block',
+                    mx: 2,
+                    textUnderlineOffset: '4px',
+                    fontWeight: isActive ? 'bold' : 'normal',
+                    borderBottom: isActive ? '2px solid' : 'none',
+                    borderColor: isActive ? 'primary.main' : 'transparent'
+                  }}
+                >
+                  {page}
+                </Button>
+              );
+            })}
           </Box>
 
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end', }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -72,7 +80,7 @@ function ResponsiveAppBar() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'r;ight',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
@@ -86,23 +94,31 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={() => handleNavigate(`/${page.toLowerCase()}`)}
-                  sx={{
-                    my: 2,
-                    color: 'black',
-                    display: 'block',
-                    width: '100%',
-                    justifyContent: 'center',
-                    textDecoration: window.location.pathname === `/${page.toLowerCase()}` ? 'underline' : 'none',
-                    textUnderlineOffset: '4px',
-                  }}
-                >
-                  {page}
-                </Button>
-              ))}
+              {pages.map((page) => {
+                const path = `/${page.toLowerCase()}`;
+                const isActive = currentPath === path;
+
+                return (
+                  <Button
+                    key={page}
+                    onClick={() => handleNavigate(path)}
+                    sx={{
+                      my: 2,
+                      color: isActive ? 'primary.main' : 'black',
+                      display: 'block',
+                      width: '100%',
+                      justifyContent: 'center',
+                      textDecoration: isActive ? 'underline' : 'none',
+                      textUnderlineOffset: '4px',
+                      fontWeight: isActive ? 'bold' : 'normal',
+                      borderBottom: isActive ? '2px solid' : 'none',
+                      borderColor: isActive ? 'primary.main' : 'transparent'
+                    }}
+                  >
+                    {page}
+                  </Button>
+                );
+              })}
             </Menu>
           </Box>
         </Toolbar>
@@ -111,4 +127,4 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;
+export default Navbar;
