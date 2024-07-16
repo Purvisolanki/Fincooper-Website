@@ -7,22 +7,23 @@ import Button from '@mui/material/Button';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import About from './About';
 import Typewriter from '../components/Typewriter';
+import { motion } from "framer-motion";
 
 const HomeContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   backgroundColor: "#09A3C6",
   borderRadius: '0px 0px 90px 90px',
-  height:"630px",
+  height: "630px",
   padding: theme.spacing(3),
   [theme.breakpoints.down('md')]: {
     borderRadius: '0px 0px 60px 60px',
     padding: theme.spacing(2),
-    height:"600px"
+    height: "800px"
   },
   [theme.breakpoints.down('sm')]: {
     borderRadius: '0px 0px 30px 30px',
     padding: theme.spacing(1),
-    height:"600px"
+    height: "650px"
   },
 }));
 
@@ -33,7 +34,7 @@ const StyledTypography1 = styled(Typography)(({ theme }) => ({
   lineHeight: "48.41px",
   marginTop: "15%",
   marginLeft: "8%",
-  height:"150px",
+  height: "150px",
   color: "#fff",
   [theme.breakpoints.down('md')]: {
     fontSize: "30px",
@@ -44,6 +45,7 @@ const StyledTypography1 = styled(Typography)(({ theme }) => ({
     fontSize: "24px",
     lineHeight: "30px",
     marginTop: "8%",
+    marginBottom:0
   },
 }));
 
@@ -55,6 +57,7 @@ const StyledTypography2 = styled(Typography)(({ theme }) => ({
   marginLeft: "8%",
   marginTop: "3%",
   color: "#fff",
+  
   [theme.breakpoints.down('md')]: {
     fontSize: "16px",
     lineHeight: "20px",
@@ -62,7 +65,7 @@ const StyledTypography2 = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     fontSize: "14px",
     lineHeight: "18px",
-    marginTop: "2%",
+    marginTop: "0%",
   },
 }));
 
@@ -72,9 +75,11 @@ const StyledImage = styled('img')(({ theme }) => ({
   borderRadius: '0px 0px 90px 90px',
   [theme.breakpoints.down('md')]: {
     borderRadius: '0px 0px 60px 60px',
+    height:"350px"
   },
   [theme.breakpoints.down('sm')]: {
     borderRadius: '0px 0px 30px 30px',
+    height:"280px"
   },
 }));
 
@@ -82,8 +87,8 @@ export default function RowAndColumnSpacing() {
   return (
     <>
       <HomeContainer>
-        <Grid container spacing={3} >
-          <Grid item xs={12} md={6} >
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
             <StyledTypography1>
               Empowering Futures through <Typewriter text="Innovative Finance Solutions" delay={100} infinite />
             </StyledTypography1>
@@ -135,12 +140,16 @@ export default function RowAndColumnSpacing() {
                   boxShadow: '#fff 2px 2px 0 0, #000 2px 2px 0 1px',
                   transform: 'translate(2px, 2px)',
                 },
+                marginBottom: {
+                  xs: 0,
+                },
               }}
             >
               Explore
             </Button>
           </Grid>
-          <Grid item xs={12} md={6}  sx={{top:0}}>
+          <Grid item xs={12} md={6} sx={{height:"auto"}}>
+      
             <StyledImage src="assets/HomeImg.gif" alt="Your GIF" />
           </Grid>
         </Grid>
@@ -148,15 +157,20 @@ export default function RowAndColumnSpacing() {
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={6} sx={{ marginTop: "5%", height: "auto" }}>
-          <img
-            src="assets/photo.png"
-            alt="Your png"
-            style={{
-              marginLeft: "10%",
-              width: '80%',
-              height: 'auto',
-            }}
-          />
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 2 }}
+          >
+            <img
+              src="assets/photo.png"
+              alt="Your png"
+              style={{
+                marginLeft: "10%",
+                width: '80%',
+                height: 'auto',
+              }}
+            />
+          </motion.div>
         </Grid>
         <Grid item xs={12} md={6} sx={{ position: 'relative', height: "auto" }}>
           <img
@@ -203,7 +217,6 @@ export default function RowAndColumnSpacing() {
             >
               Our Mission
             </Typography>
-
             <Typography
               sx={{
                 fontFamily: "Inter",

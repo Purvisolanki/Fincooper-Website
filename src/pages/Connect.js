@@ -48,7 +48,7 @@ const validationSchema = Yup.object({
   phoneNumber: Yup.string().required('Phone number is required'),
   company: Yup.string().required('Company is required'),
   message: Yup.string().required('Message is required'),
-  reference: Yup.string().required('Reference is required'),
+  reference: Yup.string().required('Required'),
 });
 
 const initialValues = {
@@ -96,66 +96,111 @@ export default function Connect() {
           <Typography sx={{ marginTop: 2 }}>Start your awesome experience now, Get in touch with us to see how we can create awesome for you.</Typography>
         </Grid>
       </Grid>
-      <Grid container spacing={2} justifyContent="center" sx={{ marginTop: 4 }}>
-        <Grid item xs={12} md={8} sx={{ border: "2px solid", borderColor: "#09A3C6", padding: { xs: 1, md: 2 }, marginBottom: "5%" }}>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={onSubmit}
-          >
-            {({ isSubmitting }) => (
-              <Form>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <Field name="name" as={TextField} fullWidth id="outlined-basic" label="Name" variant="outlined" helperText={<ErrorMessage name="name" />} />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Field name="email" as={TextField} fullWidth id="outlined-basic" label="Email" variant="outlined" helperText={<ErrorMessage name="email" />} />
-                  </Grid>
-                  <Grid item xs={12} sm={6} sx={{ marginTop: { xs: 2, sm: 0 } }}>
-                    <Field name="phoneNumber" as={TextField} fullWidth id="outlined-basic" label="Phone Number" variant="outlined" helperText={<ErrorMessage name="phoneNumber" />} />
-                  </Grid>
-                  <Grid item xs={12} sm={6} sx={{ marginTop: { xs: 2, sm: 0 } }}>
-                    <Field name="company" as={TextField} fullWidth id="outlined-basic" label="Company" variant="outlined" helperText={<ErrorMessage name="company" />} />
-                  </Grid>
-                  <Grid item xs={12} sm={12} sx={{ marginTop: 2 }}>
-                    <Field
-                      name="message"
-                      as={TextField}
-                      id="outlined-multiline-static"
-                      label="Message"
-                      multiline
-                      fullWidth
-                      rows={4}
-                      helperText={<ErrorMessage name="message" />}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={12} sx={{ marginTop: 2 }}>
-                    <Field
-                      name="reference"
-                      as={TextField}
-                      id="outlined-multiline-static"
-                      label="How do you know about us?"
-                      fullWidth
-                      helperText={<ErrorMessage name="reference" />}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={12} sx={{ textAlign: 'center', marginTop: 2 }}>
-                    <AnimatedButton
-                      shadow
-                      buttonState={state}
-                      idleText="Submit"
-                      loadingText="Loading"
-                      successText="Done"
-                      type='submit'
-                    />
-                  </Grid>
-                </Grid>
-              </Form>
-            )}
-          </Formik>
-        </Grid>
-      </Grid>
+      <Grid container spacing={2} justifyContent="center" sx={{ marginTop: 4, width: "auto" }}>
+  <Grid 
+    item 
+    xs={12} 
+    md={8} 
+    sx={{
+      width: "auto", 
+      border: { xs: "1px solid", md: "2px solid" }, 
+      borderColor: "#09A3C6", 
+      padding: { xs: 1, md: 2 }, 
+      marginBottom: "5%"
+    }}
+  >
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Field 
+                name="name" 
+                as={TextField} 
+                fullWidth 
+                id="outlined-basic" 
+                label="Name" 
+                variant="outlined" 
+                helperText={<ErrorMessage name="name" />} 
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Field 
+                name="email" 
+                as={TextField} 
+                fullWidth 
+                id="outlined-basic" 
+                label="Email" 
+                variant="outlined" 
+                helperText={<ErrorMessage name="email" />} 
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} sx={{ marginTop: { xs: 2, sm: 0 } }}>
+              <Field 
+                name="phoneNumber" 
+                as={TextField} 
+                fullWidth 
+                id="outlined-basic" 
+                label="Phone Number" 
+                variant="outlined" 
+                helperText={<ErrorMessage name="phoneNumber" />} 
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} sx={{ marginTop: { xs: 2, sm: 0 } }}>
+              <Field 
+                name="company" 
+                as={TextField} 
+                fullWidth 
+                id="outlined-basic" 
+                label="Company" 
+                variant="outlined" 
+                helperText={<ErrorMessage name="company" />} 
+              />
+            </Grid>
+            <Grid item xs={12} sm={12} sx={{ marginTop: 2 }}>
+              <Field
+                name="message"
+                as={TextField}
+                id="outlined-multiline-static"
+                label="Message"
+                multiline
+                fullWidth
+                rows={4}
+                helperText={<ErrorMessage name="message" />}
+              />
+            </Grid>
+            <Grid item xs={12} sm={12} sx={{ marginTop: 2 }}>
+              <Field
+                name="reference"
+                as={TextField}
+                id="outlined-multiline-static"
+                label="How do you know about us?"
+                fullWidth
+                helperText={<ErrorMessage name="reference" />}
+              />
+            </Grid>
+            <Grid item xs={12} sm={12} sx={{ textAlign: 'center', marginTop: 2 }}>
+              <AnimatedButton
+                shadow
+                buttonState={state}
+                idleText="Submit"
+                loadingText="Loading"
+                successText="Done"
+                type='submit'
+                sx={{ backgroundColor: "#09A3C6" }}
+              />
+            </Grid>
+          </Grid>
+        </Form>
+      )}
+    </Formik>
+  </Grid>
+</Grid>
+
     </Box>
   );
 }

@@ -5,7 +5,7 @@ import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRig
 
 const About = () => {
     return (
-        <Grid container rowSpacing={1} mt={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
+        <Grid container rowSpacing={1} mt={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} mb={7}>
             <Grid item xs={12} md={6} >
                 <Typography
                     sx={{
